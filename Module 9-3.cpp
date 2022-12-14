@@ -33,12 +33,13 @@ _
 Корректно обрабатывается пустая строка.*/
 
 #include <iostream>
+#include <string>
 
 int main() {
 
 	std::string inputText;
 	std::cout << "Enter string: ";
-	std::cin >> inputText;
+	std::getline(std::cin, inputText);
 
 	bool correctNumber = true;
 	bool presenceDigit = false;
