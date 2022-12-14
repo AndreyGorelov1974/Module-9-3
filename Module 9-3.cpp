@@ -40,10 +40,12 @@ int main() {
 	std::string inputText;
 	std::cout << "Enter string: ";
 	std::getline(std::cin, inputText);
-
-	bool correctNumber = true;
-	bool presenceDigit = false;
+		
 	int numberWords = 0;
+
+	if (inputText[0] != ' ') {
+		numberWords++;
+	}
 	
 	for (int i = 1; i < inputText.length(); i++) {
 		if (inputText[i-1] == ' ' && inputText[i] != ' ') {
@@ -51,6 +53,5 @@ int main() {
 		}
 		
 	}
-
 	std::cout << "Answer: " << numberWords;
 }
