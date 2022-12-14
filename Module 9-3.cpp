@@ -36,38 +36,20 @@ _
 
 int main() {
 
-	std::string inputNumber;
-	std::cout << "Enter a real number, not in exponential form: ";
-	std::cin >> inputNumber;
+	std::string inputText;
+	std::cout << "Enter string: ";
+	std::cin >> inputText;
 
 	bool correctNumber = true;
 	bool presenceDigit = false;
-	int numberPoints = 0;
-
-	if (inputNumber[0] >= '0' && inputNumber[0] <= '9') {
-		presenceDigit = true;
-	}
-	else if (inputNumber[0] == '.') {
-		numberPoints++;
-	}
-	else if (inputNumber[0] != '-') {
-		correctNumber = false;
+	int numberWords = 0;
+	
+	for (int i = 1; i < inputText.length(); i++) {
+		if (inputText[i-1] == ' ' && inputText[i] != ' ') {
+			numberWords++;
+		}
+		
 	}
 
-	for (int i = 1; correctNumber && i < inputNumber.length(); i++) {
-		if (inputNumber[i] >= '0' && inputNumber[i] <= '9') {
-			presenceDigit = true;
-		}
-		else if (inputNumber[i] == '.') {
-			numberPoints++;
-		}
-		else {
-			correctNumber = false;
-		}
-		if (numberPoints > 1) {
-			correctNumber = false;
-		}
-	}
-
-	std::cout << ((presenceDigit && correctNumber) ? "Yes" : "No");
+	std::cout << "Answer: " << numberWords;
 }
